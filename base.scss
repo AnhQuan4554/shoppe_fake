@@ -1,0 +1,220 @@
+:root{
+    --primary-color:#EE4D2D;
+    --white-color:#fff;
+    --black-color:#000;
+    --text-color:#333;
+    --header-height:120px;
+    --navbar-height:34px;
+    --header__with-seach-height:calc( var(--header-height) - var(--navbar-height));
+    --start-gold-color:rgb(224, 212, 99);
+    --header__sort-bar-height:46px
+}
+
+*{
+    box-sizing: inherit;
+    padding: 0;
+    ul,li{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+
+    }
+    .header__seach-mobile{
+        display: none;
+    }
+}
+html{
+    font-size: 65.5%;//10px
+    line-height: 1.6rem;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+    //margin-top: 15px;
+    //clear: both;
+}
+/* test kiểu respon */
+.grid__colum-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.33334%;
+}
+.grid__colum-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.66667%;
+    
+}
+.grid__colum-2-4{//từng cột sản phẩm chiến 2.4 cột tức 5 cột trong 1 hàng
+    padding-left: 5px;
+    padding-right: 5px;
+    
+    width: 20%;
+    margin-bottom: 5px;
+}
+//hiệu ứng hiện lên rõ dân
+@keyframes fadein{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+//hiệu ứng chỉ phóng to , dùng biến để dùng lại nhiều lần
+@keyframes grow{
+    from{
+        transform: scale(var(--grow-from));
+    }
+    to{
+        transform: scale(var(--grow-to));
+
+    }
+}
+//hiệu ứng của riêng thằng thông báo,của thằng user 
+@keyframes header__notify--grow{
+    from{
+        transform: scale(0);
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* hiệu ứng trượt từ trên xuống mờ đến lúc rõ dần */
+@keyframes header__seach-mobile-down {
+    0%{
+        opacity: 0;
+        top: calc( var(--header-height) / 2);
+    }
+    40%{
+        opacity: 0;
+        top: calc(var(--header-height) - 6px);
+
+    }
+    75%{
+        opacity: 0;
+        top: calc(var(--header-height) - 6px);
+
+    }
+    100%{
+        opacity: 1;
+        top: var(--header-height);
+    }
+}
+/* modal */
+.modal{
+    
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    animation: fadein linear 0.1s;
+
+    .modal__overplay{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.4);
+
+    }
+    .modal__body{
+     /*    width: 300px;
+        height: 300px; */
+        margin: auto;
+        z-index: 100;
+        border-radius: 5px;
+        --grow-from:0.7;
+        --grow-to:1;
+        animation:grow linear 0.1s;
+    }
+
+}
+/* buttun */
+.btn{
+    min-width: 142px;
+    height: 34px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    padding: 0 8px;
+    /* căn chính giữa cho các nút (ttruowngf hợp của nút đăng kí đăng nhập */
+    display: inline-flex ;
+    justify-content: center;
+    align-items: center;
+
+}
+.btn.auth-form__btn--primary{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+}
+.btn.auth-form__btn--disable{
+    cursor: default;
+    color: #ccc;
+    background-color: #999;
+}
+.btn--size-s{
+    height: 32px;
+}
+.slect-input {
+    position: relative;
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .filter-frice-head{
+        font-size: 1.4rem;
+    }
+    .filter-frice-icon{
+        font-size: 1.4rem;
+    }
+}
+//màu 
+.star__rating--color{
+    color:var(--start-gold-color);
+}
+
+//thanh panigation ( chuyển số trang)
+.home-panigation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .home-panigation-iteam{
+        .home-panigation-iteam-link{
+            display: block;
+            font-size: 1.4rem;
+            height: 32px;
+            width: 40px;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 2px;
+            
+        }
+       
+    }
+}
+.home-panigation__home-product{
+    margin-top: 50px;
+    margin-bottom: 60px;
+    
+}
